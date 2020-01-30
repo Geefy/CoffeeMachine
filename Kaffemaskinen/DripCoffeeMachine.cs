@@ -12,12 +12,20 @@ namespace Kaffemaskinen
         {
         }
 
-        public override Beverage MakeBeverage()
+        public override void MakeBeverage()
         {
+            //Makes coffee if machine is turned on
             if (IsTurnedOn)
                 beverage = new Coffee();
 
-            return beverage;
+            
         }
+
+        public void InsertFilter()
+        {
+            HasFilter = true;
+        }
+
+
     }
 }

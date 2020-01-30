@@ -11,7 +11,16 @@ namespace Kaffemaskinen
         protected bool isTurnedOn;
         public bool IsTurnedOn { get { return isTurnedOn; } }
 
-        public abstract void TurnOn();
-        public abstract void TurnOff();
+        public void TurnOff()
+        {
+            //Turns off machine
+            isTurnedOn = true;
+        }
+
+        public void TurnOn()
+        {
+            //Turn on machine
+            isTurnedOn = true;
+        }
     }
 }

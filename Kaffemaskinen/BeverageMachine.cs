@@ -12,34 +12,30 @@ namespace Kaffemaskinen
         public bool HasFilter { get { return hasFilter; } set { hasFilter = value; } }
         protected Beverage beverage;
         private Container internalContainer;
-        public Container externalContainer;
         
         public BeverageMachine(float containerSize)
         {
             internalContainer = new Container(containerSize);
         }
 
-        public override void TurnOff()
+
+        public abstract void MakeBeverage();
+
+
+        public virtual Beverage ReturnBeverage(float amount)
         {
-            //Turns off machine
+            if (internalContainer.CurrLiters > amount)
+            {
+
+            internalContainer.CurrLiters -= amount;
+            return beverage;
+            }
+            return null;
         }
 
-        public override void TurnOn()
+        public virtual void FillInternalContainer(float amount)
         {
-            //Turn on machine
-            isTurnedOn = true;
-        }
-
-        public abstract Beverage MakeBeverage();
-
-        public virtual Container FillInternalContainer(float amount, Beverage beverage)
-        {
-
-
             internalContainer.Fill(amount);
-            internalContainer.Beverage = beverage;
-
-            return internalContainer;
         }
     }
 }

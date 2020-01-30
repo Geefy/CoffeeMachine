@@ -10,12 +10,26 @@ namespace Kaffemaskinen
     {
         static void Main(string[] args)
         {
-            BeverageMachine machine = new DripCoffeeMachine(3);
-            Person person = new Person();
-            machine.TurnOn();
-            person.FillCup(machine.MakeBeverage());
-            machine.TurnOff();
-            person.Drink();
+            BeverageMachine coffeeMachine = new DripCoffeeMachine(3);
+            BeverageMachine teaMachine = new TeaMachine(3);
+            Person coffeePerson = new Person();
+            Person teaPerson = new Person();
+
+            //Coffee Person
+            coffeeMachine.FillInternalContainer(3);
+            coffeeMachine.TurnOn();
+            coffeeMachine.MakeBeverage();
+            coffeePerson.FillCup(coffeeMachine.ReturnBeverage(coffeePerson.cup.MaxLiters));
+            coffeeMachine.TurnOff();
+            coffeePerson.Drink();
+
+            //Tea Person
+            teaMachine.FillInternalContainer(3);
+            teaMachine.TurnOn();
+            teaMachine.MakeBeverage();
+            teaPerson.FillCup(teaMachine.ReturnBeverage(teaPerson.cup.MaxLiters));
+            teaMachine.TurnOff();
+            teaPerson.Drink();
             Console.Read();
         }
     }

@@ -8,7 +8,7 @@ namespace Kaffemaskinen
 {
     class Person
     {
-        private Container cup = new Container(1);
+        public Container cup = new Container(1);
 
         public void FillCup(Beverage beverage)
         {
@@ -17,7 +17,7 @@ namespace Kaffemaskinen
 
         public void Drink()
         {
-            Console.WriteLine("I drink" + cup.Beverage);
+            Console.WriteLine("I drink " + cup.Beverage.Name);
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Kaffemaskinen
         private Beverage beverage;
 
         public float CurrLiters { get { return currLiters; } set { currLiters = value; } }
+        public float MaxLiters { get { return maxLiters; } }
         public Beverage Beverage { get { return beverage; } set { beverage = value; } }
 
         public Container(float maxCapacity)
